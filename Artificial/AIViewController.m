@@ -8,7 +8,10 @@
 
 #import "AIViewController.h"
 
-@interface AIViewController ()
+@interface AIViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
+    __weak IBOutlet UIImageView *faceImageView;
+}
 
 @end
 
@@ -24,6 +27,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)newImage:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    [imagePicker setDelegate:self];
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
 }
 
 @end

@@ -1,23 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="AIViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxn-9n-uTY">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="New Image">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newImage:" destination="2" eventType="touchUpInside" id="A8u-MA-1BN"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-2w-X91"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rxn-9n-uTY" firstAttribute="top" secondItem="8K5-2w-X91" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0mG-qe-8Zd"/>
+                            <constraint firstItem="8K5-2w-X91" firstAttribute="centerX" secondItem="rxn-9n-uTY" secondAttribute="centerX" type="default" id="2gq-ic-XKI"/>
+                            <constraint firstItem="8K5-2w-X91" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="4gC-6E-3me"/>
+                            <constraint firstItem="8K5-2w-X91" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="60d-Sp-vyF"/>
+                            <constraint firstAttribute="bottom" secondItem="rxn-9n-uTY" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="873-HQ-6OU"/>
+                            <constraint firstItem="8K5-2w-X91" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="vse-kQ-FFW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceImageView" destination="8K5-2w-X91" id="yhv-zm-tYk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="236" y="293"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AIViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AIViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newImage:"/>
+                <relationship kind="outlet" name="faceImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
